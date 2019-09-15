@@ -1,0 +1,113 @@
+:host {
+    --news-primary-color: #f74062;
+
+    .image {
+        width: 100vw;
+        height: 400px;
+        background-position: inherit;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+
+        &Brief {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-top: 30px;
+
+            &Data {
+                width: 50%;
+            }
+
+            &Item {
+                padding-bottom: 10px;
+            }
+
+            @media only screen and (max-width: 640px) {
+                width: 100%;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding-left: 12px;
+            }
+        }
+
+        &Desc {
+            position: absolute;
+            left: 25%;
+            top: 46%;
+            width: 75%;
+            max-height: 400px;
+            overflow: auto;
+            background-color: #fafafa;
+
+            &Body {
+                padding: 10px;
+                padding-top: 4%;
+            }
+
+            &Action {
+                text-align: center;
+            }
+
+            @media only screen and (max-width: 640px) {
+                width: 100%;
+                position: relative;
+                left: 0;
+                top: 0;
+            }
+        }
+    }
+
+    .header {
+        font-size: 24px;
+        text-transform: uppercase;
+        color: #6f6f6f;
+    }
+
+    .subHeader {
+        font-size: 16px;
+        color: #6f6f6f8c;
+    }
+
+    button {
+        border: none;
+        color: white;
+        outline: none;
+        text-decoration: none;
+        background-color: var(--news-primary-color);
+        border-radius: 18px;
+    }
+
+    .comments {
+        padding: 24px;
+    }
+
+    .list {
+        padding-top: 16px;
+
+        &Item {
+            display: flex;
+            padding-bottom: 10px;
+
+            img {
+                border-radius: 50%;
+                height: 80px;
+            }
+
+            &Body {
+                padding-left: 10px;
+
+                &Header {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,46 @@
+<div class="content">
+    <div *ngIf="article$ | async as article">
+        <div class="image" [ngStyle]="{ 'background-image': getImage(article?.urlToImage) }"></div>
+
+        <div class="content">
+            <div class="contentBrief">
+                <div class="contentBriefData">
+                    <div class="contentBriefItem">{{ article?.source?.name }}</div>
+                    <div class="contentBriefItem">{{ article?.author }}</div>
+                    <div class="contentBriefItem">{{ article?.publishedAt | date }}</div>
+                    <div class="contentBriefItem">{{ comments.length }} comment</div>
+                </div>
+            </div>
+            <div class="contentDesc">
+                <div class="contentDescBody">
+                    <div class="header">{{ article?.title }}</div>
+                    <div class="subHeader">{{ article?.description }}</div>
+                    <div class="subHeader">{{ article?.metadata }}</div>
+                </div>
+
+                <div class="contentDescAction">
+                    <button (click)="goToArticle(article?.url)">Read More</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="comments">
+            <h5>{{ comments.length }} Comment</h5>
+            <mat-divider></mat-divider>
+            <div class="list">
+                <div class="listItem" *ngFor="let comment of comments">
+                    <img src="{{ comment?.avatar }}" alt="" srcset="" />
+                    <div class="listItemBody">
+                        <div class="listItemBodyHeader">
+                            <h4 mat-line>{{ comment.name }}</h4>
+                            <div>{{ comment.date | date }}</div>
+                        </div>
+                        <div class="listItemBodyComment">
+                            <p mat-line>{{ comment.comment }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

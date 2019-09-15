@@ -1,0 +1,34 @@
+<div class="content row left paddingLeft56">
+    <mat-form-field class="example-form-field">
+        <input matInput #input type="text" placeholder="Search News" [(ngModel)]="value" />
+        <button
+            mat-button
+            *ngIf="value"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="clear()"
+        >
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-progress-bar
+        *ngIf="articles.length == 0 && showLoader"
+        color="primary"
+        mode="indeterminate"
+    >
+    </mat-progress-bar>
+</div>
+
+<div class="content row">
+    <div *ngFor="let article of articles" class="column">
+        <a routerLink="/article" [state]="article">
+            <app-news-card [article]="article"></app-news-card
+        ></a>
+    </div>
+
+    <div class="column" *ngIf="articles.length == 0 && !showLoader">
+        <app-news-empty-card [searchTerm]="value"></app-news-empty-card>
+    </div>
+</div>
